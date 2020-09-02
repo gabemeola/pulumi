@@ -51,6 +51,9 @@ jobs:
       - name: Fetch Tags
         run: |
           git fetch --quiet --prune --unshallow --tags
+      - name: Ensure
+        run: |
+          make ensure
       - name: Build
         run: |
           make travis_pull_request
