@@ -6,8 +6,6 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PULUMI_TEST_OWNER: "moolumi"
   GO111MODULE: "on"
-  PULUMI_NODE_MODULES: "/opt/pulumi/node_modules"
-  PULUMI_LOCAL_NUGET: "/opt/pulumi/nuget"
 
 jobs:
   build_and_test:
@@ -57,5 +55,7 @@ jobs:
       - name: Build
         run: |
           make travis_pull_request
+        env:
+          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
 
 
