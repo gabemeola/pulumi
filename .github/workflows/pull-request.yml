@@ -43,7 +43,7 @@ jobs:
           git config --global user.name "Your Name"
       - name: Update path
         run: |
-          echo "::add-path::/opt/pulumi/bin"
+          echo "::add-path::${{ runner.temp }}/opt/pulumi/bin"
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Fetch Tags
