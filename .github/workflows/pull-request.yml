@@ -72,7 +72,7 @@ jobs:
           make install
       - name: Test
         run: |
-          make test
+          make test_all
         env:
           PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
 
