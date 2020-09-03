@@ -176,6 +176,7 @@ func TestReadingGitRepo(t *testing.T) {
 
 	os.Setenv("TRAVIS", "1")
 	os.Setenv("TRAVIS_BRANCH", "branch-from-ci")
+	os.Setenv("GITHUB_REF", "branch-from-ci")
 
 	{
 		test := &backend.UpdateMetadata{
