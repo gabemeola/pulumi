@@ -174,7 +174,6 @@ func TestReadingGitRepo(t *testing.T) {
 		}
 	}()
 
-	os.Unsetenv("PULUMI_DISABLE_CI_DETECTION") // Restore our CI/CD detection logic.
 	os.Setenv("TRAVIS", "1")
 	os.Setenv("TRAVIS_BRANCH", "branch-from-ci")
 
@@ -187,6 +186,8 @@ func TestReadingGitRepo(t *testing.T) {
 		assert.True(t, ok, "Expected 'git.headName' key, from CI util.")
 		assert.Equal(t, "branch-from-ci", name)
 	}
+
+	os.Unsetenv("PULUMI_DISABLE_CI_DETECTION") // Restore our CI/CD detection logic.
 }
 
 // TestReadingGitLabMetadata tests the functions which read data fom the local Git repo
