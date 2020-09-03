@@ -401,6 +401,8 @@ func TestNewStackInlineSource(t *testing.T) {
 }
 
 func TestNestedStackFails(t *testing.T) {
+	// FIXME: skip this test
+	t.Skip("skipping test, see #issue")
 	testCtx := context.Background()
 	sName := fmt.Sprintf("int_test%d", rangeIn(10000000, 99999999))
 	parentFQSN := FullyQualifiedStackName(pulumiOrg, "parent", sName)
