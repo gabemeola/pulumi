@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+
+- Python SDK: Add support for `Sequence[T]` for array types
+  [#5282](https://github.com/pulumi/pulumi/pull/5282)
 
 ## 2.9.2 (2020-08-31)
 
