@@ -52,9 +52,27 @@ jobs:
       - name: Ensure
         run: |
           make ensure
+      - name: Install
+        run: |
+          make install
+        env:
+          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
+      - name: Dist
+        run: |
+          make dist
+        env:
+          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
       - name: Build
         run: |
-          make travis_pull_request
+          make build
+        env:
+          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
+      - name: Install
+        run: |
+          make install
+      - name: Test
+        run: |
+          make test
         env:
           PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
 
