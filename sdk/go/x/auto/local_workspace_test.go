@@ -434,7 +434,10 @@ func TestNestedStackFails(t *testing.T) {
 		assert.Nil(t, err, "failed to remove stack. Resources have leaked.")
 	}()
 
-	_, err = s.Up(testCtx)
+	result, err := s.Up(testCtx)
+
+	t.Log(result)
+
 	assert.Error(t, err)
 	assert.Contains(t, err.Error(), "nested stack operations are not supported")
 
