@@ -22,7 +22,7 @@ jobs:
         with:
           working-directory: ${{ matrix.directory }}
           version: v1.30
-          args: -c ../.golangci.yml
+          args: -c ../.golangci.yml --timeout 5m
   build_and_test:
     name: Build & Test
     strategy:
