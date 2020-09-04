@@ -6,7 +6,6 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PULUMI_TEST_OWNER: "moolumi"
   GO111MODULE: "on"
-  PULUMI_GO_DEP_ROOT: /home/runner/work/pulumi
 
 jobs:
   build_and_test:
@@ -50,6 +49,9 @@ jobs:
       - name: Fetch Tags
         run: |
           git fetch --quiet --prune --unshallow --tags
+      - name: Set Go Dep path
+        run: |
+          echo "::set-env name=PULUMI_GO_DEP_ROOT::$(dirname $(pwd))"
       - name: Ensure
         run: |
           make ensure
