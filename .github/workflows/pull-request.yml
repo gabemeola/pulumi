@@ -6,6 +6,8 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PULUMI_TEST_OWNER: "moolumi"
   GO111MODULE: "on"
+  PULUMI_GO_DEP_ROOT: /home/runner/work/pulumi
+  PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
 
 jobs:
   build_and_test:
@@ -55,27 +57,17 @@ jobs:
       - name: Install
         run: |
           make install
-        env:
-          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
       - name: Dist
         run: |
           make dist
-        env:
-          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
       - name: Build
         run: |
           make build
-        env:
-          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
       - name: Install
         run: |
           make install
-        env:
-          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
       - name: Test
         run: |
           make test_all
-        env:
-          PULUMI_ROOT: ${{ runner.temp }}/opt/pulumi
 
 
