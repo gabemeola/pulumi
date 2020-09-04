@@ -6,6 +6,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PULUMI_TEST_OWNER: "moolumi"
   GO111MODULE: "on"
+  PULUMI_GO_DEP_ROOT: /home/runner/work/pulumi
 
 jobs:
   build_and_test:
