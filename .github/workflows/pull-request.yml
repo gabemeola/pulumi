@@ -11,7 +11,8 @@ jobs:
   lint:
     name: Lint ${{ matrix.directory }}
     strategy:
-      directory: [ sdk, pkg, tests ]
+      matrix:
+        directory: [ sdk, pkg, tests ]
     runs-on: ubuntu-latest"
     steps:
       - name: Checkout Repo
