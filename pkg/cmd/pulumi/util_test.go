@@ -185,6 +185,7 @@ func TestReadingGitRepo(t *testing.T) {
 		}
 		assert.NoError(t, addGitMetadata(e.RootPath, test))
 		name, ok := test.Environment[backend.GitHeadName]
+		t.Log(name)
 		assert.True(t, ok, "Expected 'git.headName' key, from CI util.")
         // assert.Equal(t, "branch-from-ci", name)
 	}
