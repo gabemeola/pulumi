@@ -119,7 +119,7 @@ func TestNewStackLocalSource(t *testing.T) {
 
 func rangeIn(low, hi int) int {
 	rand.Seed(time.Now().UnixNano())
-	return low + rand.Intn(hi-low)
+	return low + rand.Intn(hi-low) //nolint:gosec
 }
 
 func TestNewStackRemoteSource(t *testing.T) {
