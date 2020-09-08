@@ -121,7 +121,9 @@ type Stack struct {
 
 // FullyQualifiedStackName returns an appropriately formatted name to be used for Stack creation/selection.
 func FullyQualifiedStackName(org, project, stack string) string {
-	return fmt.Sprintf("%s/%s/%s", org, project, stack)
+	// Change to dashes for S3 validation
+	// See: https://github.com/pulumi/pulumi/issues/2522
+	return fmt.Sprintf("%s-%s-%s", org, project, stack)
 }
 
 // NewStack creates a new stack using the given workspace, and fully qualified stack name (org/project/name).

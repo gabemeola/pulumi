@@ -623,10 +623,12 @@ func Repo(gitRepo GitRepo) LocalWorkspaceOption {
 
 // ValidateFullyQualifiedStackName validates that the fqsn is in the form "org/project/name".
 func ValidateFullyQualifiedStackName(fqsn string) error {
-	parts := strings.Split(fqsn, "/")
+	// Change validation to dashes for S3 validation
+	// See: https://github.com/pulumi/pulumi/issues/2522
+	parts := strings.Split(fqsn, "-")
 	if len(parts) != 3 {
 		return errors.Errorf(
-			"invalid fully qualified stack name: %s, expected in the form 'org/project/stack'",
+			"invalid fully qualified stack name: %s, expected in the form 'org-project-stack'",
 			fqsn,
 		)
 	}
